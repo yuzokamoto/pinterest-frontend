@@ -8,6 +8,10 @@ interface Response {
 }
 
 export async function loginRequest(body: object): Promise<Response> {
-  const response = await api.post("/user/login", body);
-  return response.data;
+  try {
+    const response = await api.post("/user/login", body);
+    return response.data;
+  } catch (error) {
+    return error;
+  }
 }
